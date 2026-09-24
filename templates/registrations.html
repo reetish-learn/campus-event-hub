@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrations | CampusHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <div class="logo">Campus<span>Hub</span></div>
+    <div class="nav-links">
+        <a href="/">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/registrations">Registrations</a>
+    </div>
+</nav>
+
+<main>
+    <p class="tag">MANAGEMENT</p>
+    <h2>Event Registrations</h2>
+
+    <div class="table-card">
+        {% if registrations %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Event</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in registrations %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty">
+            <h3>No registrations yet</h3>
+            <p>Registrations will appear here after students sign up.</p>
+        </div>
+        {% endif %}
+    </div>
+</main>
+</body>
+</html>

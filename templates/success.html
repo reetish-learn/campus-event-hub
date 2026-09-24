@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful | CampusHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <div class="logo">Campus<span>Hub</span></div>
+    <div class="nav-links">
+        <a href="/">Events</a>
+        <a href="/registrations">Registrations</a>
+    </div>
+</nav>
+
+<main class="form-page">
+    <div class="form-card success">
+        <div class="success-icon">✓</div>
+        <p class="tag">SUCCESS</p>
+        <h2>You're registered!</h2>
+        <p>Thanks, {{ name }}. Your registration for <strong>{{ event[1] }}</strong> has been saved.</p>
+        <a href="/" class="button">Back to Events</a>
+    </div>
+</main>
+</body>
+</html>

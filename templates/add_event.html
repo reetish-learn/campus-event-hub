@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event | CampusHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <div class="logo">Campus<span>Hub</span></div>
+    <div class="nav-links">
+        <a href="/">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/registrations">Registrations</a>
+    </div>
+</nav>
+
+<main class="form-page">
+    <div class="form-card">
+        <p class="tag">CAMPUS EVENTS</p>
+        <h2>Add an Event</h2>
+        <form method="POST">
+            <label>Event Title</label>
+            <input type="text" name="title" required placeholder="e.g. AI Hackathon">
+
+            <label>Date</label>
+            <input type="date" name="date" required>
+
+            <label>Venue</label>
+            <input type="text" name="venue" required placeholder="e.g. Main Auditorium">
+
+            <label>Description</label>
+            <textarea name="description" required placeholder="Describe the event"></textarea>
+
+            <button class="button" type="submit">Create Event</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Event Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <div class="logo">Campus<span>Hub</span></div>
+    <div class="nav-links">
+        <a href="/">Events</a>
+        <a href="/add-event">Add Event</a>
+        <a href="/registrations">Registrations</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div>
+        <p class="tag">VIDYASHILP UNIVERSITY</p>
+        <h1>Discover what's<br>happening on campus.</h1>
+        <p class="subtitle">
+            Find workshops, hackathons, technical events,
+            cultural programs and more.
+        </p>
+        <a href="#events" class="button">Explore Events</a>
+    </div>
+</section>
+
+<main id="events">
+    <div class="section-heading">
+        <div>
+            <p class="tag">UPCOMING</p>
+            <h2>Campus Events</h2>
+        </div>
+        <a href="/add-event" class="outline-button">+ Add Event</a>
+    </div>
+
+    <div class="event-grid">
+        {% for event in events %}
+        <div class="event-card">
+            <div class="event-date">{{ event[2] }}</div>
+            <h3>{{ event[1] }}</h3>
+            <p>{{ event[4] }}</p>
+            <div class="venue">📍 {{ event[3] }}</div>
+            <a href="/register/{{ event[0] }}" class="button small">Register</a>
+        </div>
+        {% else %}
+        <div class="empty">
+            <h3>No events yet</h3>
+            <p>Add the first campus event.</p>
+            <a href="/add-event" class="button">Add Event</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+</body>
+</html>
